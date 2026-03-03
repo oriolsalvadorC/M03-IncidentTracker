@@ -1,0 +1,14 @@
+<h2>Detall de l'Incident</h2>
+
+<p>
+    Usuari autenticat: <strong>{{ request.user.username }}</strong>
+</p>
+
+<hr>
+
+<p><strong>ID:</strong> {{ incident.id }}</p>
+<p><strong>Títol:</strong> {{ incident.title|safe }}</p>
+<p><strong>Descripció:</strong> {{ incident.description }}</p>
+<p><strong>Severitat:</strong> {{ incident.severity }}</p>
+<p><strong>Creat per:</strong> {{ incident.creator.username }}</p>
+

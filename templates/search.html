@@ -1,0 +1,31 @@
+<h2>Cercador d'Incidències</h2>
+<p>
+    Usuari autenticat: 
+    <strong>{{ request.user.username }}</strong>
+
+    {% if request.user.is_superuser %}
+        <span style="color:red;">(SUPERUSUARI)</span>
+    {% else %}
+        <span style="color:blue;">(ANALISTA)</span>
+    {% endif %}
+</p>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Buscar incident...">
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+<h3>Resultats:</h3>
+
+<ul>
+    {% for r in results %}
+        <li>
+            <strong>{{ r.1 }}</strong><br>
+            {{ r.2 }}
+        </li>
+    {% empty %}
+        <li>No hi ha resultats.</li>
+    {% endfor %}
+</ul>
