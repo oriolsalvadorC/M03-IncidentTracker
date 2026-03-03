@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
   #      'PORT': '5432',
  #   }
 #}
-if os.environ.get("GITHUB_ACTIONS") == "true":
+if os.environ.get("CI"):
     # Base de dades per CI (GitHub Actions)
     DATABASES = {
         'default': {
