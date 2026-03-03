@@ -1,5 +1,5 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,7 +14,7 @@ class SecurityRegressionTests(StaticLiveServerTestCase):
         super().setUpClass()
         opts = Options()
         opts.add_argument("--headless")
-        cls.selenium = WebDriver(options=opts)
+        cls.selenium = webdriver.Firefox(options=opts)
         cls.selenium.implicitly_wait(10)
 
     @classmethod
