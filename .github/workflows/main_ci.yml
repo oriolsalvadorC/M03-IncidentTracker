@@ -23,11 +23,6 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Instal·lar Firefox
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y firefox
-
       - name: Executar tests de seguretat Selenium
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
