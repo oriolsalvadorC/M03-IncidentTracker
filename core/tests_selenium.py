@@ -14,7 +14,13 @@ class SecurityRegressionTests(StaticLiveServerTestCase):
         super().setUpClass()
         opts = Options()
         opts.add_argument("--headless")
-        cls.selenium = webdriver.Firefox(options=opts)
+        opts.add_argument("--no-sandbox")
+        opts.add_argument("--disable-dev-shm-usage")
+
+        cls.selenium = webdriver.Remote(
+            command_executor="http://selenium-firefox:4444/wd/hub",
+            options=opts
+        )
         cls.selenium.implicitly_wait(10)
 
     @classmethod
